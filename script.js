@@ -95,11 +95,26 @@ document.addEventListener('DOMContentLoaded', () => {
         membersData = [];
         membersDiv.innerHTML = '';
         csvFileInput.value = '';
+        dateInput.value = '';
+        statusInput.value = '';
     });
 
     const dateInput = document.getElementById('dateInput');
     dateInput.addEventListener('change', (event) => {
         const selectedDate = event.target.value;
         console.log('Selected date:', selectedDate);
+    });
+
+    const setDateButton = document.getElementById('setDateButton');
+    setDateButton.addEventListener('click', () => {
+        const statusInput = document.getElementById('statusInput');
+        const dateMatch = statusInput.value.match(/(\d{4})年(\d{2})月(\d{2})日/);
+        if (dateMatch) {
+            const year = dateMatch[1];
+            const month = dateMatch[2];
+            const day = dateMatch[3];
+            const formattedDate = `${year}-${month}-${day}`;
+            dateInput.value = formattedDate;
+        }
     });
 });
