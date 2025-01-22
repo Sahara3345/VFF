@@ -96,4 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         membersDiv.innerHTML = '';
         csvFileInput.value = '';
     });
+
+    const dateInput = document.getElementById('dateInput');
+    dateInput.addEventListener('change', (event) => {
+        const selectedDate = event.target.value;
+        console.log('Selected date:', selectedDate);
+    });
 });
